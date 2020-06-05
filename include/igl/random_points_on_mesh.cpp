@@ -42,6 +42,10 @@ IGL_INLINE void igl::random_points_on_mesh(
   assert(R.minCoeff() >= 0);
   assert(R.maxCoeff() <= 1);
   histc(R,C,FI);
+  auto FImax = F.rows() - 1;
+  for ( int i = 0; i < FI.rows(); ++i )
+      if ( FI(i) > FImax )
+          FI(i) = FImax;
   const VectorXs S = (VectorXs::Random(n,1).array() + 1.)/2.;
   const VectorXs T = (VectorXs::Random(n,1).array() + 1.)/2.;
   B.resize(n,3);
