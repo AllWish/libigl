@@ -19,7 +19,7 @@ IGL_INLINE bool igl::opengl::destroy_shader_program(const GLuint id)
     return false;
   }
   // Get each attached shader one by one and detach and delete it
-  GLsizei count;
+  GLsizei count = 0;
   // shader id
   GLuint s;
   do
