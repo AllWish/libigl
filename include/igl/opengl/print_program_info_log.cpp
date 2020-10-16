@@ -18,7 +18,7 @@ IGL_INLINE void igl::opengl::print_program_info_log(const GLuint obj)
   
   glGetProgramiv(obj, GL_INFO_LOG_LENGTH,&infologLength);
   
-  if (infologLength > 0)
+  if (infologLength > 1)
   {
     infoLog = (char *)malloc(infologLength);
     glGetProgramInfoLog(obj, infologLength, &charsWritten, infoLog);

@@ -19,7 +19,7 @@ IGL_INLINE void igl::opengl::print_shader_info_log(const GLuint obj)
   // Get shader info log from opengl
   glGetShaderiv(obj, GL_INFO_LOG_LENGTH,&infologLength);
   // Only print if there is something in the log
-  if (infologLength > 0)
+  if (infologLength > 1)
   {
     infoLog = (char *)malloc(infologLength);
     glGetShaderInfoLog(obj, infologLength, &charsWritten, infoLog);
