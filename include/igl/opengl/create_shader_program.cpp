@@ -17,7 +17,8 @@ IGL_INLINE bool igl::opengl::create_shader_program(
   const std::string & vert_source,
   const std::string & frag_source,
   const std::map<std::string,GLuint> & attrib,
-  GLuint & id)
+  GLuint & id,
+  std::string* out )
 {
   using namespace std;
   if(vert_source == "" && frag_source == "")
@@ -99,7 +100,11 @@ IGL_INLINE bool igl::opengl::create_shader_program(
   detach(v);
 
   // print log if any
-  igl::opengl::print_program_info_log(id);
+  std::string log = igl::opengl::print_program_info_log(id);
+  if (out)
+	  * out = log;
+  else
+	  printf("%s\n", log.c_str());
 
   return true;
 }
@@ -108,9 +113,10 @@ IGL_INLINE bool igl::opengl::create_shader_program(
   const std::string & vert_source,
   const std::string & frag_source,
   const std::map<std::string,GLuint> & attrib,
-  GLuint & prog_id)
+  GLuint & prog_id,
+  std::string* out)
 {
-  return create_shader_program("",vert_source,frag_source,attrib,prog_id);
+  return create_shader_program("",vert_source,frag_source,attrib,prog_id, out);
 }
 
 

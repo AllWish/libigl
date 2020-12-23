@@ -16,7 +16,7 @@ namespace igl
   {
     // Inputs:
     //   obj  OpenGL index of program to print info log about
-    IGL_INLINE void print_program_info_log(const GLuint obj);
+    IGL_INLINE std::string print_program_info_log(const GLuint obj);
   }
 }
 

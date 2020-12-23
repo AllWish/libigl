@@ -39,12 +39,14 @@ namespace igl
       const std::string &vert_source,
       const std::string &frag_source,
       const std::map<std::string,GLuint> &attrib,
-      GLuint & id);
+      GLuint & id,
+	  std::string* out = nullptr);
     IGL_INLINE bool create_shader_program(
       const std::string &vert_source,
       const std::string &frag_source,
       const std::map<std::string,GLuint> &attrib,
-      GLuint & id);
+      GLuint & id,
+	  std::string* out = nullptr);
     IGL_INLINE GLuint create_shader_program(
       const std::string & geom_source,
       const std::string & vert_source,

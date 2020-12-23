@@ -10,19 +10,20 @@
 #include <cstdio>
 #include <stdlib.h>
 // Copyright Denis Kovacs 4/10/08
-IGL_INLINE void igl::opengl::print_program_info_log(const GLuint obj)
+IGL_INLINE std::string igl::opengl::print_program_info_log(const GLuint obj)
 {
   GLint infologLength = 0;
   GLint charsWritten  = 0;
   char *infoLog;
-  
+  std::string res;
   glGetProgramiv(obj, GL_INFO_LOG_LENGTH,&infologLength);
   
   if (infologLength > 1)
   {
     infoLog = (char *)malloc(infologLength);
     glGetProgramInfoLog(obj, infologLength, &charsWritten, infoLog);
-    printf("%s\n",infoLog);
+	res = std::string(infoLog);
     free(infoLog);
   }
+  return res;
 }
